@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 9 ene 2022 12:31:41 by Hibernate Tools 5.5.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="balonmano" dynamic-insert="false" dynamic-update="false" mutable="true" name="Jugadores" optimistic-lock="none" polymorphism="implicit" select-before-update="false" table="jugadores">
+        <id name="idJugador" type="int">
+            <column name="id_jugador"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="Equipos" embed-xml="true" fetch="select" insert="true" name="equipos" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="id_equipo"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="nombre" optimistic-lock="true" type="string" unique="false">
+            <column length="40" name="nombre"/>
+        </property>
+        <property generated="never" lazy="false" name="posicion" optimistic-lock="true" type="string" unique="false">
+            <column length="5" name="Posicion"/>
+        </property>
+        <property generated="never" lazy="false" name="peso" optimistic-lock="true" type="java.lang.Float" unique="false">
+            <column name="Peso" precision="12" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="fechaAlt" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="fecha_alt"/>
+        </property>
+    </class>
+</hibernate-mapping>
